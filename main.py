@@ -1,6 +1,11 @@
 import telebot
 
+from pdfminer.high_level import extract_pages, extract_text
+
 from bot import API_KEY
+
+text = extract_text("ug_rules.pdf")
+print(text)
 
 bot = telebot.TeleBot(API_KEY, parse_mode=None)
 
