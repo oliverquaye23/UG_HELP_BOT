@@ -1,5 +1,7 @@
 import telebot
 
+import torch
+
 from pdfminer.high_level import extract_pages, extract_text
 
 from transformers import pipeline
@@ -9,7 +11,7 @@ from bot import API_KEY
 text = extract_text("ug_rules.pdf")
 print(text)
 
-QA_pipepline = pipeline("question-amswering")
+QA_pipepline = pipeline("question-answering", model="distilbert-base-cased-distilled-squad")
 
 bot = telebot.TeleBot(API_KEY, parse_mode=None)
 
